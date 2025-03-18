@@ -3,90 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>anasayfa</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Anasayfa</title>
+   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="icon" href="style/img/YC.png" type="image/png">
 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #23486A;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .social_bar {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: white;
+            height: 55px;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+            font-size: 18px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .social_bar span {
+            display: flex;
+            align-items: center;
+        }
+
+        .social_bar img {
+            margin-right: 10px;
+        }
+
+        .social_bar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 95%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: black;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 50px;
+            height: 250px;
+            margin-bottom: 15px;
+        }
+        section {
+            
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(20, 23, 28, .15);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        section {
+            background-color: #4C7B8B;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(20, 23, 28, .15);
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px; /* space for nav */
+        }
+
+        nav {
+            
+            display: flex;
+            justify-content: center;
+            background-color: #4C7B8B;
+            padding: 10px 0;
+            margin-bottom: 15px; /* space below the navbar */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            display: block;
+            background-color: #EFB036;
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: black;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        main {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .içerik {
+            width: 45%;
+            display: inline-block;
+            margin: 2% 2%;
+            padding: 1%;
+            background-color: #b6adada6;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .rsm {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .btndevam {
+            display: block;
+            width: fit-content;
+            background-color: rgb(0, 162, 255);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .btndevam:hover {
+            background-color: white;
+            color: rgb(0, 162, 255);
+        }
+
+        footer {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Yeni eklenen stil */
+        .textbox-container {
+            margin-top: 15px;
+        }
+
+        .textbox {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #4C7B8B;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <div class="social_bar">
-        <font><span class="index"><img src="style/img/YC.png" alt=""> | anasayfa</span></font>
-        
-
-        <i><a class="topbar-link" href="https://instagram.com/00yusufcr"><i class="fab fa-instagram"></i></a></i>
-        <i><a class="topbar-link" href="https://youtube.com/@00yusufcr"><i class="fab fa-youtube"></i></a></i>
-        <i><a class="topbar-link" href="https://github.com/zynoxus"><i class="fab fa-github"></i></a></i>
-        
-       
+        <span class="index"><img src="style/img/YC.png" alt=""> | Anasayfa</span>
     </div>
 
-        <div class="container">
-
-            <header>
-                <img class="headerResim" src="style/img/uwu.gif" alt="">
-                </header>
-            <section>
-
-                <nav><ul>
-                    <li  class="anasayfa"><a class="li1" href="index.html"><img src="style/img/house-solid.svg" alt="">anasayfa</a></li>
-                    <li  class="hakkımda"><a class="li2" href="hakkımda.html"><img src="style/img/graduation-cap-solid.svg" alt="">hakkımda</a></li>
-                    <li  class="iletişim"><a class="li3" href="iletisim.html"><img src="style/img/address-card-solid.svg" alt=""> iletişim</a></li>
+    <div class="container">
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><img src="style/img/house-solid.svg" alt="">Anasayfa</a></li>
+                    <li><a href="hakkımda.html"><img src="style/img/graduation-cap-solid.svg" alt="">Hakkımda</a></li>
+                    <li><a href="iletisim.html"><img src="style/img/address-card-solid.svg" alt=""> İletişim</a></li>
+                </ul>
+            </nav>
+        </section>
+        <header>
+            <div id="counter">00.00.00</div>
+        </header>
+        
+        <script>
+            function startCountdown(durationInSeconds) {
+                let timer = durationInSeconds;
+                const counterElement = document.getElementById('counter');
+                
+                function updateCounter() {
+                    let hours = Math.floor(timer / 3600);
+                    let minutes = Math.floor((timer % 3600) / 60);
+                    let seconds = timer % 60;
                     
-                    <!--<li  class="galeri"><a class="li4" href="#"><img src="style/img/image-solid.svg" alt="">galeri</a></li>
-                    <li  class="projeler"><a class="li5" href="#"><img src="style/img/laptop-code-solid.svg" alt="">projeler</a></li>-->
-                </ul></nav>
-                <main  >
-                    <div class="içerik">
-                        <img src="style/img/ilk_website_ss.png"  alt="resim" class="rsm">
+                    counterElement.textContent = `${String(hours).padStart(2, '0')}.${String(minutes).padStart(2, '0')}.${String(seconds).padStart(2, '0')}`;
+                    
+                    if (timer > 0) {
+                        timer--;
+                        setTimeout(updateCounter, 1000);
+                    }
+                }
+                updateCounter();
+            }
+            startCountdown(3600);
+        </script>
+        
+        <section>
+            
 
-                        <h5>Html5&CSS3</h5>
-                        <p>ilk website tasarımımdır. Yapımı konusunda...</p>
-                        <a href="ilk_websites.html" class="btndevam">devam...</a>
-                    
-                    
+            <main>
+                <div class="içerik">
+                    <iframe width="750" height="400" src="https://www.youtube.com/embed/lTRiuFIWV54" title="1 A.M Study Session 📚 [lofi hip hop]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 5px;"></iframe>
+                </div>
+                <div class="içerik">
+                    <!-- Yeni Textbox -->
+                    <div class="textbox-container">
+                        <textarea id="textbox" class="textbox" rows="10" placeholder="Buraya yorum yazabilirsiniz..."></textarea>
                     </div>
-                    <div class="içerik">
-                        <img src="style/img/calculator.webp"  alt="resim" class="rsm">
-
-                        <h5>hesap makinesi yapımı 1</h5>
-                        <p>flutter ile uyuglamasını yapmayı deniyoruz. ilk önce en basit şekilde yapmaya çalışıcaz.</p>
-                        <a href="hesap-makinesi1.html" class="btndevam">devam...</a>
-                    
-                    
-                    </div>
-                    <div class="içerik">
-                        <img src="style/img/animezone-logo.jpg"  alt="resim" class="rsm">
-
-                        <h5>Animezone</h5>
-                        <p>yeni başlamayı planladığım bir projedir. Yakında...</p>
-                        <a href="" class="btndevam">Yakında</a>
-                    
-                    
-                    </div>
-                    
-                    
-                    <!-- 
-                    <div class="içerik">
-                        <img src="style/img/içerik4.jpeg"  alt="resim" class="rsm">
-
-                        <h5>başlık</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam labore eum nihil aut quis eaque vel est rem, sapiente amet et a vitae facere veniam cumque natus praesentium commodi officiis.</p>
-                        <a href="#" class="btndevam">devam...</a>
-                    
-                    
-                    </div>
--->                    
-
-                </main>
-
-            </section>
-            <footer>ziyaret ettiğiniz için teşekkürler</footer>
-        </div>
-
+                </div>
+            </main>
+        </section>
+        
+    </div>
 </body>
 </html>
