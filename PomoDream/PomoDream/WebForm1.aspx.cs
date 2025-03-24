@@ -8,7 +8,7 @@ namespace PomoDream
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        // Ayarlar butonuna tıklandığında paneli açar
+        // Sayfa yüklendiğinde, varsayılan süreyi ayarlıyoruz.
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -23,17 +23,13 @@ namespace PomoDream
         {
             pnlSettings.CssClass = "settings-panel open"; // Paneli aç
             btnSettings.Visible = false; // Ayarlar butonunu gizle
-            btnMusic.Visible = false;
-            btnPuzzles.Visible = false;
         }
 
-        // Kapat butonuna tıklandığında paneli kapatır ve ayarlar butonunu tekrar gösterir
-        protected void btnClose_Click(object sender, EventArgs e)
+        // Kapat butonuna tıklandığında paneli kapatır
+        protected void btnCloseSettings_Click(object sender, EventArgs e)
         {
             pnlSettings.CssClass = "settings-panel"; // Paneli kapat
-            btnPuzzles.Visible = true; // Bulmacalar butonunu tekrar göster
-            btnSettings.Visible = true;
-            btnMusic.Visible = true;
+            btnSettings.Visible = true; // Ayarlar butonunu tekrar göster
         }
 
         // Aydınlık tema butonuna tıklandığında tema dosyasını değiştirir
@@ -59,85 +55,13 @@ namespace PomoDream
             }
         }
 
-
-        // Müzikler panelini açar
-        protected void btnMusic_Click(object sender, EventArgs e)
-        {
-            pnlMusic.Visible = true;
-        }
-
-        // Müzikler panelini kapatır
-        protected void btnCloseMusic_Click(object sender, EventArgs e)
-        {
-            pnlMusic.Visible = false;
-        }
-
-        // Bulmacalar panelini açar
-        protected void btnPuzzles_Click(object sender, EventArgs e)
-        {
-            pnlPuzzles.Visible = true;
-        }
-
-        // Bulmacalar panelini kapatır
-        protected void btnClosePuzzles_Click(object sender, EventArgs e)
-        {
-            pnlPuzzles.Visible = false;
-        }
-
-        // Kronometre başlangıç süresi ayarlama
-        protected void btnSetTime_Click(object sender, EventArgs e)
-        {
-            int minutes = Convert.ToInt32(txtTime.Text);
-            Session["timeLeft"] = minutes * 60;
-            UpdateLabel();
-        }
-
-        // Kronometreyi başlatır
-        protected void btnStart_Click(object sender, EventArgs e)
-        {
-            Timer1.Enabled = true;
-        }
-
-        // Kronometreyi durdurur
-        protected void btnStop_Click(object sender, EventArgs e)
-        {
-            Timer1.Enabled = false;
-        }
-
-        // Kronometreyi sıfırlar
-        protected void btnReset_Click(object sender, EventArgs e)
-        {
-            Session["timeLeft"] = 25 * 60;
-            UpdateLabel();
-        }
-
-        // Kronometreyi her saniye günceller
-        protected void Timer1_Tick(object sender, EventArgs e)
-        {
-            int timeLeft = (int)Session["timeLeft"];
-            timeLeft--;
-            Session["timeLeft"] = timeLeft;
-            UpdateLabel();
-            if (timeLeft <= 0)
-            {
-                Timer1.Enabled = false; // Zaman bittiğinde durdur
-            }
-        }
-
-        // Kronometre etiketini günceller
+        // Kronometreyi günceller
         private void UpdateLabel()
         {
             int timeLeft = (int)Session["timeLeft"];
             int minutes = timeLeft / 60;
             int seconds = timeLeft % 60;
             lblTime.Text = $"{minutes:D2}:{seconds:D2}";
-        }
-        
-        // Sayfa teması değiştirme
-        private string BodyClassName
-        {
-            get { return (string)ViewState["BodyClassName"] ?? "light-theme"; }
-            set { ViewState["BodyClassName"] = value; }
         }
     }
 }
