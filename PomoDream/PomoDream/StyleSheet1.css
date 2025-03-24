@@ -73,7 +73,41 @@
         transform: translateY(-3px);
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
-    .ensar{
-        position : center;
-    }
-    
+
+.header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: #f4f4f4;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.light-theme {
+    background-color: white;
+    color: black;
+}
+
+.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+.tema-tema {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: blueviolet;
+}
+
+.time-settings {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: blueviolet;
+}
+
+.container-settings {
+    background-color: aqua;
+}

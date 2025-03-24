@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace PomoDream
 {
     public partial class WebForm1 : System.Web.UI.Page
-    {// Ayarlar butonuna tıklandığında paneli açar
+    {
+        // Ayarlar butonuna tıklandığında paneli açar
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 Session["timeLeft"] = 25 * 60; // Varsayılan süre (25 dakika)
                 UpdateLabel();
             }
-            // Place page-specific code here.
         }
+
+        // Ayarlar panelini açar
         protected void btnSettings_Click(object sender, EventArgs e)
         {
             pnlSettings.CssClass = "settings-panel open"; // Paneli aç
@@ -36,79 +36,95 @@ namespace PomoDream
             btnMusic.Visible = true;
         }
 
-        protected void btnMusic_Click(object sender, EventArgs e)
+        // Aydınlık tema butonuna tıklandığında tema dosyasını değiştirir
+        protected void btnLightTheme_Click(object sender, EventArgs e)
         {
-            pnlMusic.CssClass = "settings-panel open"; // Müzikler panelini aç
-            btnSettings.Visible = false; // Ayarlar butonunu gizle
-            btnMusic.Visible = false;
-            btnPuzzles.Visible = false;
+            SetTheme("light-tema.css");  // Aydınlık tema
         }
 
-        // Müzikler panelini kapat
-        protected void btnCloseMusic_Click(object sender, EventArgs e)
+        // Karanlık tema butonuna tıklandığında tema dosyasını değiştirir
+        protected void btnDarkTheme_Click(object sender, EventArgs e)
         {
-            pnlMusic.CssClass = "settings-panel"; // Müzikler panelini kapat
-            btnPuzzles.Visible = true; // Bulmacalar butonunu tekrar göster
-            btnSettings.Visible = true;
-            btnMusic.Visible = true;
+            SetTheme("dark-tema.css");   // Karanlık tema
         }
 
-        protected void btnPuzzles_Click(object sender, EventArgs e)
+        // Tema dosyasını güncelleyen yardımcı metod
+        private void SetTheme(string themeFileName)
         {
-            pnlPuzzles.CssClass = "settings-panel open"; // Bulmacalar panelini aç
-            btnSettings.Visible = false; // Ayarlar butonunu gizle
-            btnMusic.Visible = false;
-            btnPuzzles.Visible = false;
-        }
-
-        protected void btnClosePuzzles_Click(object sender, EventArgs e)
-        {
-            pnlPuzzles.CssClass = "settings-panel"; // Bulmacalar panelini kapat
-            btnPuzzles.Visible = true; // Bulmacalar butonunu tekrar göste
-            btnSettings.Visible=true;
-            btnMusic.Visible=true;
-        }
-        protected void btnSetTime_Click(object sender, EventArgs e)
-        {
-            int minutes;
-            if (int.TryParse(txtTime.Text, out minutes) && minutes > 0)
+            // Sayfadaki link tag'inin href'ini değiştirir
+            var themeLink = (HtmlLink)Page.Header.FindControl("themeLink");
+            if (themeLink != null)
             {
-                Session["timeLeft"] = minutes * 60;
-                UpdateLabel();
+                themeLink.Href = themeFileName;
             }
         }
 
+
+        // Müzikler panelini açar
+        protected void btnMusic_Click(object sender, EventArgs e)
+        {
+            pnlMusic.Visible = true;
+        }
+
+        // Müzikler panelini kapatır
+        protected void btnCloseMusic_Click(object sender, EventArgs e)
+        {
+            pnlMusic.Visible = false;
+        }
+
+        // Bulmacalar panelini açar
+        protected void btnPuzzles_Click(object sender, EventArgs e)
+        {
+            pnlPuzzles.Visible = true;
+        }
+
+        // Bulmacalar panelini kapatır
+        protected void btnClosePuzzles_Click(object sender, EventArgs e)
+        {
+            pnlPuzzles.Visible = false;
+        }
+
+        // Kronometre başlangıç süresi ayarlama
+        protected void btnSetTime_Click(object sender, EventArgs e)
+        {
+            int minutes = Convert.ToInt32(txtTime.Text);
+            Session["timeLeft"] = minutes * 60;
+            UpdateLabel();
+        }
+
+        // Kronometreyi başlatır
         protected void btnStart_Click(object sender, EventArgs e)
         {
             Timer1.Enabled = true;
         }
 
+        // Kronometreyi durdurur
         protected void btnStop_Click(object sender, EventArgs e)
         {
             Timer1.Enabled = false;
         }
 
+        // Kronometreyi sıfırlar
         protected void btnReset_Click(object sender, EventArgs e)
         {
-            Session["timeLeft"] = int.Parse(txtTime.Text) * 60;
+            Session["timeLeft"] = 25 * 60;
             UpdateLabel();
         }
 
+        // Kronometreyi her saniye günceller
         protected void Timer1_Tick(object sender, EventArgs e)
         {
             int timeLeft = (int)Session["timeLeft"];
-            if (timeLeft > 0)
+            timeLeft--;
+            Session["timeLeft"] = timeLeft;
+            UpdateLabel();
+            if (timeLeft <= 0)
             {
-                timeLeft--;
-                Session["timeLeft"] = timeLeft;
-                UpdateLabel();
-            }
-            else
-            {
-                Timer1.Enabled = false;
+                Timer1.Enabled = false; // Zaman bittiğinde durdur
             }
         }
 
+        // Kronometre etiketini günceller
         private void UpdateLabel()
         {
             int timeLeft = (int)Session["timeLeft"];
@@ -116,7 +132,12 @@ namespace PomoDream
             int seconds = timeLeft % 60;
             lblTime.Text = $"{minutes:D2}:{seconds:D2}";
         }
-
-
+        
+        // Sayfa teması değiştirme
+        private string BodyClassName
+        {
+            get { return (string)ViewState["BodyClassName"] ?? "light-theme"; }
+            set { ViewState["BodyClassName"] = value; }
+        }
     }
 }
