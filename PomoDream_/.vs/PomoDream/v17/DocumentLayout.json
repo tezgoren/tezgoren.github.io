@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\",
+  "WorkspaceRootPath": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|c:\\users\\yusuf-bakunin\\documents\\github\\site\\pomodream\\pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\pomodream\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|c:\\users\\ensar al\u0130\\documents\\github\\site\\pomodream_\\pomodream\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
@@ -22,74 +22,51 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-<<<<<<< HEAD
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WebForm1.aspx",
+              "DocumentMoniker": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx",
+              "RelativeDocumentMoniker": "PomoDream\\WebForm1.aspx",
+              "ToolTip": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx",
+              "RelativeToolTip": "PomoDream\\WebForm1.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-03-25T00:38:12.235Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-=======
-              "$type": "Document",
-              "DocumentIndex": 1,
->>>>>>> 917a7f74c83d49fa27d37f761ccb0ed5cc4fa0a5
-              "Title": "WebForm1.aspx",
-              "DocumentMoniker": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\PomoDream\\WebForm1.aspx",
-              "RelativeDocumentMoniker": "PomoDream\\WebForm1.aspx",
-<<<<<<< HEAD
-              "ToolTip": "C:\\Users\\ENSAR AL\u0130\\Source\\Repos\\PomoDream\\PomoDream\\WebForm1.aspx",
-=======
-              "ToolTip": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\PomoDream\\WebForm1.aspx",
->>>>>>> 917a7f74c83d49fa27d37f761ccb0ed5cc4fa0a5
-              "RelativeToolTip": "PomoDream\\WebForm1.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-19T21:28:17.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StyleSheet1.css",
-              "DocumentMoniker": "C:\\Users\\ENSAR AL\u0130\\Source\\Repos\\PomoDream\\PomoDream\\StyleSheet1.css",
-              "RelativeDocumentMoniker": "PomoDream\\StyleSheet1.css",
-              "ToolTip": "C:\\Users\\ENSAR AL\u0130\\Source\\Repos\\PomoDream\\PomoDream\\StyleSheet1.css",
-              "RelativeToolTip": "PomoDream\\StyleSheet1.css",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAFIAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-19T21:51:02.997Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "StyleSheet1.css",
-              "DocumentMoniker": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\PomoDream\\StyleSheet1.css",
+              "DocumentMoniker": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\StyleSheet1.css",
               "RelativeDocumentMoniker": "PomoDream\\StyleSheet1.css",
-              "ToolTip": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\PomoDream\\StyleSheet1.css",
+              "ToolTip": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\StyleSheet1.css",
               "RelativeToolTip": "PomoDream\\StyleSheet1.css",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAmwHAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAowFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-19T21:51:02.997Z",
+              "WhenOpened": "2025-03-25T00:38:12.244Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "WebForm1.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\PomoDream\\WebForm1.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx.cs",
               "RelativeDocumentMoniker": "PomoDream\\WebForm1.aspx.cs",
-              "ToolTip": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream\\PomoDream\\WebForm1.aspx.cs",
+              "ToolTip": "C:\\Users\\ENSAR AL\u0130\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx.cs",
               "RelativeToolTip": "PomoDream\\WebForm1.aspx.cs",
-<<<<<<< HEAD
-              "ViewState": "AgIAAIYAAAAAAAAAAAAgwJ0AAAABAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAABwAAAAAAAAAAAA2wEMAAAAAAAAAAAAAAA==",
->>>>>>> 917a7f74c83d49fa27d37f761ccb0ed5cc4fa0a5
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T21:28:50.893Z"
+              "WhenOpened": "2025-03-25T00:38:12.245Z",
+              "EditorCaption": ""
             }
           ]
         }
