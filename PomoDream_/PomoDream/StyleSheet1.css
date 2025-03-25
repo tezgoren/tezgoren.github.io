@@ -1,0 +1,124 @@
+﻿body {
+    background-color: red;
+}
+/* Temel ayarlar buton stili */
+.settings-button {
+    position: fixed;
+    top: 20px; /* Sayfanın üst kısmına hizalı */
+    left: 20px; /* Sol tarafa hizalı */
+    font-size: 18px;
+    padding: 12px 20px;
+    background-color: #4CAF50; /* Buton yeşil renkte */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 1001; /* En üstte olması için */
+    margin-bottom: 15px; /* Butonlar arasındaki boşluk */
+}
+
+/* Müzikler butonunun stili */
+#btnMusic {
+    top: 70px; /* Ayarlar butonunun altına hizalı */
+}
+
+/* Bulmacalar butonunun stili */
+#btnPuzzles {
+    top: 120px; /* Müzikler butonunun altına hizalı */
+}
+
+/* Hover efekti */
+.settings-button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px); /* Hafif yukarı kayma */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Panel başlangıçta gizli */
+.settings-panel {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Panel başlangıçta sol dışarıda */
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    transition: left 0.5s ease; /* Sol kayma animasyonu */
+}
+
+    /* Panel açıldığında görünür olacak */
+    .settings-panel.open {
+        left: 0; /* Sol kenara kayarak görünür olacak */
+    }
+
+/* Kapat butonunun stili */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: #f44336; /* Kırmızı renk */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+    /* Kapat butonunun hover efekti */
+    .close-button:hover {
+        background-color: #e53935;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+<<<<<<< HEAD
+.kronometre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Sayfa yüksekliği kadar ortalama */
+=======
+
+.header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: #f4f4f4;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.light-theme {
+    background-color: white;
+    color: black;
+}
+
+.dark-theme {
+    background-color: #121212;
+    color: white;
+}
+
+.tema-tema {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: blueviolet;
+}
+
+.time-settings {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: blueviolet;
+}
+
+.container-settings {
+    background-color: aqua;
+>>>>>>> 917a7f74c83d49fa27d37f761ccb0ed5cc4fa0a5
+}
