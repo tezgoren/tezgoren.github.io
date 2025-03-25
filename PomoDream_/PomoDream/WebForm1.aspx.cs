@@ -132,17 +132,33 @@ namespace PomoDream
         // Butonlara renk değişikliği işlemleri
         protected void btnRenkDegisimiBir_Click(object sender, EventArgs e)
         {
-            ViewState["backgroundColor"] = "blue"; // Arka plan rengini mavi yap
+          
+            string color = "blue";  // Yeşil renk
+            ViewState["backgroundColor"] = color;
+
+            // Sayfanın arka planını JavaScript ile değiştir
+            string script = $"document.body.style.backgroundColor = '{color}';";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
         }
 
         protected void btnRenkDegisimiIki_Click(object sender, EventArgs e)
         {
-            ViewState["backgroundColor"] = "green"; // Arka plan rengini yeşil yap
+            string color = "green";  // Yeşil renk
+            ViewState["backgroundColor"] = color;
+
+            // Sayfanın arka planını JavaScript ile değiştir
+            string script = $"document.body.style.backgroundColor = '{color}';";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
         }
 
         protected void btnRenkDegisimiUc_Click(object sender, EventArgs e)
         {
-            ViewState["backgroundColor"] = "mediumturquoise"; // Arka plan rengini turkuaz yap
+            string color = "orange";  // Yeşil renk
+            ViewState["backgroundColor"] = color;
+
+            // Sayfanın arka planını JavaScript ile değiştir
+            string script = $"document.body.style.backgroundColor = '{color}';";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
         }
     }
 }

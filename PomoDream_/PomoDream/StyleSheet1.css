@@ -141,3 +141,13 @@ textarea {
     width:100%;
     height:auto;
 }
+.btn-kronometre {
+    background-color: #4CAF50; /* Yeşil arka plan */
+    color: white; /* Beyaz yazı rengi */
+    padding: 10px 20px; /* İç boşluk */
+    border: none; /* Kenarlık kaldır */
+    border-radius: 5px; /* Köşeleri yuvarlat */
+    cursor: pointer; /* Üzerine gelince el işareti */
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Geçişli efekt */
+}

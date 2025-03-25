@@ -105,9 +105,9 @@
                             <asp:Label ID="lblTime" runat="server" Text="25:00"></asp:Label>
                         </h1>
 
-                        <asp:Button ID="btnStart" runat="server" Text="Başlat" OnClick="btnStart_Click" />
-                        <asp:Button ID="btnStop" runat="server" Text="Durdur" OnClick="btnStop_Click" />
-                        <asp:Button ID="btnReset" runat="server" Text="Sıfırla" OnClick="btnReset_Click" />
+                        <asp:Button ID="btnStart" runat="server" Text="Başlat" OnClick="btnStart_Click" CssClass="btn-kronometre"/>
+                        <asp:Button ID="btnStop" runat="server" Text="Durdur" OnClick="btnStop_Click"   CssClass="btn-kronometre"/>
+                        <asp:Button ID="btnReset" runat="server" Text="Sıfırla" OnClick="btnReset_Click"   CssClass="btn-kronometre"/>
 
                         <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick" Enabled="false" />
                     </ContentTemplate>
