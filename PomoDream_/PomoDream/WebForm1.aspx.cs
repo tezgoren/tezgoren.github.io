@@ -8,17 +8,16 @@ using System.Web.UI.WebControls;
 namespace PomoDream
 {
     public partial class WebForm1 : System.Web.UI.Page
-    {// Ayarlar butonuna tıklandığında paneli açar
+    {
+        // Ayarlar butonuna tıklandığında paneli açar
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 Session["timeLeft"] = 25 * 60; // Varsayılan süre (25 dakika)
                 UpdateLabel();
             }
-            // Place page-specific code here.
-            // Page_Load içinde, ViewState'de renk kontrolü yaparak arka plan rengini uygula
+            // Sayfanın arka plan rengini ayarlama
             if (ViewState["backgroundColor"] != null)
             {
                 string color = ViewState["backgroundColor"].ToString();
@@ -26,6 +25,7 @@ namespace PomoDream
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColor", script, true);
             }
         }
+
         protected void btnSettings_Click(object sender, EventArgs e)
         {
             pnlSettings.CssClass = "settings-panel open"; // Paneli aç
@@ -34,7 +34,6 @@ namespace PomoDream
             btnPuzzles.Visible = false;
         }
 
-        // Kapat butonuna tıklandığında paneli kapatır ve ayarlar butonunu tekrar gösterir
         protected void btnClose_Click(object sender, EventArgs e)
         {
             pnlSettings.CssClass = "settings-panel"; // Paneli kapat
@@ -51,7 +50,6 @@ namespace PomoDream
             btnPuzzles.Visible = false;
         }
 
-        // Müzikler panelini kapat
         protected void btnCloseMusic_Click(object sender, EventArgs e)
         {
             pnlMusic.CssClass = "settings-panel"; // Müzikler panelini kapat
@@ -71,16 +69,18 @@ namespace PomoDream
         protected void btnClosePuzzles_Click(object sender, EventArgs e)
         {
             pnlPuzzles.CssClass = "settings-panel"; // Bulmacalar panelini kapat
-            btnPuzzles.Visible = true; // Bulmacalar butonunu tekrar göste
+            btnPuzzles.Visible = true;
             btnSettings.Visible = true;
             btnMusic.Visible = true;
         }
+
+        // Zamanlayıcı fonksiyonları
         protected void btnSetTime_Click(object sender, EventArgs e)
         {
-            int minutes;
-            if (int.TryParse(txtTime.Text, out minutes) && minutes > 0)
+            int time;
+            if (int.TryParse(txtTime.Text, out time))
             {
-                Session["timeLeft"] = minutes * 60;
+                Session["timeLeft"] = time * 60;
                 UpdateLabel();
             }
         }
@@ -97,8 +97,21 @@ namespace PomoDream
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
-            Session["timeLeft"] = int.Parse(txtTime.Text) * 60;
-            UpdateLabel();
+            int time;
+            if (int.TryParse(txtTime.Text, out time))
+            {
+                Session["timeLeft"] = time * 60;
+                UpdateLabel();
+                Timer1.Enabled = false;
+            }
+        }
+
+        private void UpdateLabel()
+        {
+            int timeLeft = (int)Session["timeLeft"];
+            int minutes = timeLeft / 60;
+            int seconds = timeLeft % 60;
+            lblTime.Text = $"{minutes:D2}:{seconds:D2}";
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
@@ -112,47 +125,24 @@ namespace PomoDream
             }
             else
             {
-                Timer1.Enabled = false;
+                Timer1.Enabled = false; // Zaman dolduğunda durdur
             }
         }
 
-        private void UpdateLabel()
-        {
-            int timeLeft = (int)Session["timeLeft"];
-            int minutes = timeLeft / 60;
-            int seconds = timeLeft % 60;
-            lblTime.Text = $"{minutes:D2}:{seconds:D2}";
-        }
-
+        // Butonlara renk değişikliği işlemleri
         protected void btnRenkDegisimiBir_Click(object sender, EventArgs e)
         {
-            string color = "blue";  // Mavi renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorBlue", script, true);
+            ViewState["backgroundColor"] = "blue"; // Arka plan rengini mavi yap
         }
 
         protected void btnRenkDegisimiIki_Click(object sender, EventArgs e)
         {
-            string color = "green";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
+            ViewState["backgroundColor"] = "green"; // Arka plan rengini yeşil yap
         }
 
         protected void btnRenkDegisimiUc_Click(object sender, EventArgs e)
         {
-            string color = "#80CBC4";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
-
+            ViewState["backgroundColor"] = "mediumturquoise"; // Arka plan rengini turkuaz yap
         }
     }
 }
