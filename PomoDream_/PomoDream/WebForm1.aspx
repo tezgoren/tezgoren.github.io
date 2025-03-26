@@ -5,7 +5,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="~/StyleSheet1.css" rel="stylesheet" />
-    <title>Panel Örneği</title>
+    <title>PomoDream</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -21,7 +21,7 @@
                     <p>Selamlar dostlar!</p>
                     <asp:Button ID="btnRenkDegisimiBir" runat="server" Text="Mavi" OnClick="btnRenkDegisimiBir_Click" />
                     <asp:Button ID="btnRenkDegisimiIki" runat="server" Text="Yeşil" OnClick="btnRenkDegisimiIki_Click" />
-                    <asp:Button ID="btnRenkDegisimiUc" runat="server" Text="Medyum Turkuaz" OnClick="btnRenkDegisimiUc_Click" />
+                    <asp:Button ID="btnRenkDegisimiUc" runat="server" Text="Turuncu" OnClick="btnRenkDegisimiUc_Click" />
                     
                     <!-- Textarea, Ayarlar Paneline Yerleştirildi -->
                     

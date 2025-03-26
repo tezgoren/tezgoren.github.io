@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: red;
+    background-color: #FEFFD2;
 }
 
 /* Temel ayarlar buton stili */
@@ -9,7 +9,7 @@
     left: 20px; /* Sol tarafa hizalı */
     font-size: 18px;
     padding: 12px 20px;
-    background-color: #4CAF50; /* Buton yeşil renkte */
+    background-color: #FFBF78; /* Buton yeşil renkte */
     color: white;
     border: none;
     border-radius: 10px;
@@ -69,11 +69,12 @@
 /* Kronometre container'ı */
 .kronometre-container {
     text-align: center;
-    background-color: #f9f9f9; /* Hafif bir arka plan rengi */
+    background-color: #FFEEA9; /* Hafif bir arka plan rengi */
     padding: 20px;
     border-radius: 10px; /* Yuvarlatılmış köşeler */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hafif gölge */
     width: 400px; /* Maksimum genişlik */
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Ayarlar Paneli */
@@ -142,7 +143,7 @@ textarea {
     height:auto;
 }
 .btn-kronometre {
-    background-color: #4CAF50; /* Yeşil arka plan */
+    background-color: #FF7D29; /* Yeşil arka plan */
     color: white; /* Beyaz yazı rengi */
     padding: 10px 20px; /* İç boşluk */
     border: none; /* Kenarlık kaldır */
