@@ -10,13 +10,30 @@
     <!-- Ayarlar Butonu -->
     <button id="btnSettings" class="settings-button">Ayarlar</button>
 
-    <!-- Ayarlar Paneli -->
-    <div id="pnlSettings" class="settings-panel">
-        <button id="btnClose" class="close-button">X</button>
-        <h3>Ayarlar Paneli</h3>
-        <textarea id="txtTime" placeholder="Dakika olarak girin"></textarea><br>
-        <button id="btnSetTime">Ayarla</button>
+<!-- Ayarlar Paneli -->
+<div id="pnlSettings" class="panel">
+    <div class="panel-header">
+        <div class="panel-title">Ayarlar</div>
+        <button id="btnClose" class="close-btn">X</button>
     </div>
+    
+    <div class="panel-body">
+        <!-- Zaman Ayarlama Bölümü -->
+        <div class="time-settings">
+            <input id="txtTime" type="number" placeholder="Dakika girin">
+            <button id="btnSetTime">Ayarla</button>
+        </div>
+        
+        <!-- Tema Değiştirme Bölümü -->
+        <div class="theme-settings">
+            <h3>Temayı Seçin:</h3>
+            <button id="btnTheme1" class="theme-button">Tema 1</button>
+            <button id="btnTheme2" class="theme-button">Tema 2</button>
+            <button id="btnTheme3" class="theme-button">Tema 3</button>
+        </div>
+    </div>
+</div>
+
 
     <!-- Sayaç Konteyneri -->
     <div class="kronometre-container">

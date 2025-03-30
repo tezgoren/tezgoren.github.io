@@ -14,9 +14,41 @@ document.addEventListener("DOMContentLoaded", function () {
         btnSettings.classList.remove("hidden"); // Ayarlar butonunu göster
     });
 
-    // Kronometre
+    // Tema değiştirme
+    const btnTheme1 = document.getElementById("btnTheme1");
+    const btnTheme2 = document.getElementById("btnTheme2");
+    const btnTheme3 = document.getElementById("btnTheme3");
+
+    btnTheme1.addEventListener("click", function () {
+        document.body.classList.remove("theme2", "theme3");
+        document.body.classList.add("theme1");
+        // Buton renklerini değiştirme
+        setButtonColors('theme1');
+    });
+
+    btnTheme2.addEventListener("click", function () {
+        document.body.classList.remove("theme1", "theme3");
+        document.body.classList.add("theme2");
+        setButtonColors('theme2');
+    });
+
+    btnTheme3.addEventListener("click", function () {
+        document.body.classList.remove("theme1", "theme2");
+        document.body.classList.add("theme3");
+        setButtonColors('theme3');
+    });
+
+    function setButtonColors(theme) {
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.classList.remove('theme1', 'theme2', 'theme3');
+            button.classList.add(theme);
+        });
+    }
+
+    // Kronometre ve diğer işlevler
     let timer;
-    let timeLeft = 25 * 60;
+    let timeLeft = 25 * 60; // Başlangıçta 25 dakika
     const lblTime = document.getElementById("lblTime");
 
     function updateTimerDisplay() {
