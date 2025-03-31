@@ -19,37 +19,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnTheme2 = document.getElementById("btnTheme2");
     const btnTheme3 = document.getElementById("btnTheme3");
 
-    btnTheme1.addEventListener("click", function () {
-        document.body.classList.remove("theme2", "theme3");
-        document.body.classList.add("theme1");
-        // Buton renklerini değiştirme
-        setButtonColors('theme1');
-    });
+    function changeTheme(theme) {
+        document.body.classList.remove("theme1", "theme2", "theme3");
+        document.body.classList.add(theme);
+        setButtonColors(theme);
+    }
 
-    btnTheme2.addEventListener("click", function () {
-        document.body.classList.remove("theme1", "theme3");
-        document.body.classList.add("theme2");
-        setButtonColors('theme2');
-    });
-
-    btnTheme3.addEventListener("click", function () {
-        document.body.classList.remove("theme1", "theme2");
-        document.body.classList.add("theme3");
-        setButtonColors('theme3');
-    });
+    btnTheme1.addEventListener("click", () => changeTheme("theme1"));
+    btnTheme2.addEventListener("click", () => changeTheme("theme2"));
+    btnTheme3.addEventListener("click", () => changeTheme("theme3"));
 
     function setButtonColors(theme) {
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach(button => {
-            button.classList.remove('theme1', 'theme2', 'theme3');
+        document.querySelectorAll("button").forEach(button => {
+            button.classList.remove("theme1", "theme2", "theme3");
             button.classList.add(theme);
         });
     }
 
-    // Kronometre ve diğer işlevler
+    // Kronometre
     let timer;
-    let timeLeft = 25 * 60; // Başlangıçta 25 dakika
+    let timeLeft = 25 * 60; // 25 dakika
     const lblTime = document.getElementById("lblTime");
+    const btnStartStop = document.getElementById("btnStartStop");
 
     function updateTimerDisplay() {
         const minutes = Math.floor(timeLeft / 60);
@@ -57,46 +48,54 @@ document.addEventListener("DOMContentLoaded", function () {
         lblTime.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
-    // Başlat/Durdur butonu
-    document.getElementById("btnStartStop").addEventListener("click", function () {
+    function startTimer() {
         if (!timer) {
-            timer = setInterval(function () {
+            timer = setInterval(() => {
                 if (timeLeft > 0) {
                     timeLeft--;
                     updateTimerDisplay();
                 } else {
-                    clearInterval(timer);
-                    timer = null;
-                    alert('Zaman doldu!');
+                    stopTimer();
+                    alert("Zaman doldu!");
                 }
             }, 1000);
+            btnStartStop.textContent = "Durdur";
+        }
+    }
+
+    function stopTimer() {
+        clearInterval(timer);
+        timer = null;
+        btnStartStop.textContent = "Başlat";
+    }
+
+    function resetTimer() {
+        stopTimer();
+        timeLeft = 25 * 60;
+        updateTimerDisplay();
+    }
+
+    btnStartStop.addEventListener("click", function () {
+        if (timer) {
+            stopTimer();
         } else {
-            clearInterval(timer);
-            timer = null;
+            startTimer();
         }
     });
 
-    // Reset butonu
-    document.getElementById("btnReset").addEventListener("click", function () {
-        timeLeft = 25 * 60; // Başlangıç süresi
-        updateTimerDisplay();
-        clearInterval(timer);
-        timer = null;
-    });
+    document.getElementById("btnReset").addEventListener("click", resetTimer);
 
-    // Ayarla butonu
     document.getElementById("btnSetTime").addEventListener("click", function () {
         const customTime = parseInt(document.getElementById("txtTime").value);
-        if (isNaN(customTime) || customTime <= 0) {
-            alert('Lütfen geçerli bir dakika değeri girin.');
-            return;
+        if (!isNaN(customTime) && customTime > 0) {
+            timeLeft = customTime * 60; // Kullanıcının girdiği süreyi saniyeye çevir
+            updateTimerDisplay();
+            stopTimer(); // Önceki zamanlayıcıyı durdur
+        } else {
+            alert("Lütfen geçerli bir dakika değeri girin.");
         }
-        timeLeft = customTime * 60; // Dakika değerini saniyeye çevir
-        updateTimerDisplay();
-        // Sayaç otomatik başlatılmasın
-        clearInterval(timer);
-        timer = null;
     });
+    
 
     updateTimerDisplay();
 });
