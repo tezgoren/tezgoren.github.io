@@ -1,6 +1,7 @@
 ﻿body {
-    background-color: red;
+    background-color: #FEFFD2;
 }
+
 /* Temel ayarlar buton stili */
 .settings-button {
     position: fixed;
@@ -8,7 +9,7 @@
     left: 20px; /* Sol tarafa hizalı */
     font-size: 18px;
     padding: 12px 20px;
-    background-color: #4CAF50; /* Buton yeşil renkte */
+    background-color: #FFBF78; /* Buton yeşil renkte */
     color: white;
     border: none;
     border-radius: 10px;
@@ -35,26 +36,6 @@
     transform: translateY(-3px); /* Hafif yukarı kayma */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
-
-/* Panel başlangıçta gizli */
-.settings-panel {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Panel başlangıçta sol dışarıda */
-    width: 300px;
-    height: 100%;
-    background-color: #f4f4f4;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    z-index: 1000;
-    transition: left 0.5s ease; /* Sol kayma animasyonu */
-}
-
-    /* Panel açıldığında görünür olacak */
-    .settings-panel.open {
-        left: 0; /* Sol kenara kayarak görünür olacak */
-    }
-
 /* Kapat butonunun stili */
 .close-button {
     position: absolute;
@@ -77,9 +58,97 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
+/* Kronometre */
 .kronometre {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Sayfa yüksekliği kadar ortalama */
+}
+
+/* Kronometre container'ı */
+.kronometre-container {
+    text-align: center;
+    background-color: #FFEEA9; /* Hafif bir arka plan rengi */
+    padding: 20px;
+    border-radius: 10px; /* Yuvarlatılmış köşeler */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hafif gölge */
+    width: 400px; /* Maksimum genişlik */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Ayarlar Paneli */
+/* Ayarlar Paneli */
+.container-settings {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Dikey sıralama */
+    align-items: center; /* Ortalamak için */
+    justify-content: flex-start; /* Yukarıdan başlayarak sıralanacak */
+    height: 100%;
+    overflow-y: auto; /* İçerik taşarsa dikey kaydırma çubuğu ekler */
+}
+
+/* İçerik konteyneri (div) */
+.inner-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Divler arasına boşluk ekler */
+}
+
+/* Ayarlar panelinin kendisi */
+.settings-panel {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Panel başlangıçta sol dışarıda */
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    transition: left 0.5s ease; /* Sol kayma animasyonu */
+    overflow: hidden; /* Panelin dışına taşan içerikleri gizle */
+}
+
+    /* Panel açıldığında görünür olacak */
+    .settings-panel.open {
+        left: 0; /* Sol kenara kayarak görünür olacak */
+    }
+
+/* Diğer stiller aynen kalabilir */
+
+
+/* Textarea Stil */
+textarea {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+}
+
+#tema{
+    background-color:aliceblue;
+    width:100%;
+    height:auto;
+}
+.btn-kronometre {
+    background-color: #FF7D29; /* Yeşil arka plan */
+    color: white; /* Beyaz yazı rengi */
+    padding: 10px 20px; /* İç boşluk */
+    border: none; /* Kenarlık kaldır */
+    border-radius: 5px; /* Köşeleri yuvarlat */
+    cursor: pointer; /* Üzerine gelince el işareti */
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Geçişli efekt */
 }
