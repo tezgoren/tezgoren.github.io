@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dark-tema.css" />
+    <Content Include="JavaScript.js" />
     <Content Include="light-tema.css" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />

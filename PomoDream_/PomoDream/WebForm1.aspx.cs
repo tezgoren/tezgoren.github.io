@@ -130,35 +130,43 @@ namespace PomoDream
         }
 
         // Butonlara renk değişikliği işlemleri
+        // Renk değişimi bir (Mavi)
         protected void btnRenkDegisimiBir_Click(object sender, EventArgs e)
         {
-          
-            string color = "blue";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
+            ChangeBackgroundColor("blue");  // Mavi rengi
         }
 
+        // Renk değişimi iki (Yeşil)
         protected void btnRenkDegisimiIki_Click(object sender, EventArgs e)
         {
-            string color = "green";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
+            ChangeBackgroundColor("green");  // Yeşil rengi
         }
 
+        // Renk değişimi üç (Turuncu)
         protected void btnRenkDegisimiUc_Click(object sender, EventArgs e)
         {
-            string color = "orange";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
+            ChangeBackgroundColor("orange");  // Turuncu rengi
         }
+
+        // Arka plan rengini değiştiren fonksiyon
+        private void ChangeBackgroundColor(string color)
+        {
+            // Sayfanın arka planını değiştirecek JavaScript kodu
+            string script = $"document.body.style.backgroundColor = '{color}';";
+
+            // JavaScript kodunu hemen çalıştırmak için ScriptManager kullanıyoruz
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColor", script, true);
+        }
+
+        protected void btnNotepad_Click(object sender, EventArgs e)
+        {
+            pnlNotepad.Visible = true;
+        }
+
+        protected void btnCloseNotepad_Click(object sender, EventArgs e)
+        {
+            pnlNotepad.Visible = false;
+        }
+        
     }
 }
