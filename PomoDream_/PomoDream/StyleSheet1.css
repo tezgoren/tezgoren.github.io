@@ -1,178 +1,40 @@
 ﻿body {
     background-color: #FEFFD2;
+    font-family: Arial, sans-serif;
 }
 
-.settings-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 18px;
-    padding: 12px 20px;
-    background-color: #FFBF78;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    z-index: 1001;
-    margin-bottom: 15px;
-}
-
-    .settings-button:hover {
-        background-color: #45a049;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-.close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 12px 20px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-    .close-button:hover {
-        background-color: #e53935;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-
-.kronometre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.kronometre-container {
-    text-align: center;
-    background-color: #FFEEA9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+#mainContainer {
+    margin: 50px auto;
     width: 400px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.settings-panel {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 300px;
-    height: 100%;
-    background-color: #f4f4f4;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff8c4;
     padding: 20px;
-    z-index: 1000;
-    transition: left 0.5s ease;
-    overflow: hidden;
-}
-
-    .settings-panel.open {
-        left: 0;
-    }
-
-textarea {
-    width: 100%;
-    max-width: 350px;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    resize: vertical;
-}
-
-.btn-kronometre {
-    background-color: #FF7D29;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.notepad {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    background-color: #f5f5f5;
-    padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px #aaa;
 }
 
-ul#taskList {
-    list-style-type: none;
+.notepad ul {
+    list-style: none;
     padding: 0;
 }
 
-ul#taskList li {
-    display: flex;
-    align-items: center;
-    padding: 8px 0;
-}
-
-.task-checkbox {
-    margin-right: 10px;
-}
-
 .task-input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 70%;
+    padding: 5px;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    color: #cc0000;
+    font-weight: bold;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
-.task-input:focus {
-    border-color: #4CAF50;
-    background-color: #e8f5e9;
-}
-
-.task-input::placeholder {
-    color: #aaa;
-}
-
-.task-checkbox:checked + .task-input {
-    text-decoration: line-through;
-    color: #d3d3d3;
-    opacity: 0.5;
-}
-
-li:last-child .task-input {
-    border-bottom: none;
-}
-
-li:last-child {
-    padding-bottom: 0;
-}
-
-.task-input:focus {
-    outline: none;
-}
-.settings-panel {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 10px;
-    position: absolute;
-    top: 150px;
-    left: 100px;
-    width: 300px;
-    height: auto;
-    box-shadow: 0px 0px 10px #aaa;
-    z-index: 100;
-}
-
+    .delete-btn:hover {
+        color: #ff0000;
+    }
