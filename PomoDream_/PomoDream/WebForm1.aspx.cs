@@ -1,164 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace PomoDream
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        // Ayarlar butonuna tıklandığında paneli açar
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Session["timeLeft"] = 25 * 60; // Varsayılan süre (25 dakika)
-                UpdateLabel();
+                string yazi = RastgeleYaziGetir();
+                lblYazi.Text = "Bugünün rastgele yazısı: " + yazi;
             }
-            // Sayfanın arka plan rengini ayarlama
-            if (ViewState["backgroundColor"] != null)
+        }
+
+        private string RastgeleYaziGetir()
+        {
+            List<string> yazilar = new List<string>
             {
-                string color = ViewState["backgroundColor"].ToString();
-                string script = $"document.body.style.backgroundColor = '{color}';";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColor", script, true);
-            }
-        }
+                "Başarı, sabır ve azimle gelir.",
+                "Hayallerine inan, çünkü onlar seni geleceğine taşır.",
+                "Bugün yaptığın şey yarının temelini oluşturur.",
+                "Başarı, asla pes etmeyenlerindir.",
+                "Her düşüş bir ders, her kalkış bir zaferdir.",
+                "Kendi hikayenin kahramanı ol.",
+                "Başarı, hazırlık ve fırsatın kesiştiği yerdedir.",
+                "Büyük başarılar, küçük ama tutarlı adımlarla gelir.",
+                "Yol uzun olabilir, ama her adım seni zirveye taşır.",
+                "Düşüncelerine dikkat et, çünkü onlar senin geleceğindir.",
+                "Küçük bir adım bile büyük değişiklikler yaratabilir.",
+                "Hata yapmaktan korkma, çünkü onlar başarının anahtarıdır.",
+                "Düşüncelerini değiştir, hayatın değişsin.",
+                "Her sabah yeni bir başlangıçtır.",
+                "En karanlık anların arkasında ışık vardır.",
+                "Bir fikrin varsa, ona inan ve peşinden git.",
+                "Hayallerini gerçekleştirmek için bugün bir adım at.",
+                "Korkuların seni durdurmasına izin verme.",
+                "Zorluklar, başarının habercisidir.",
+                "Hayatta ne kadar ileri gideceğin, cesaretine bağlıdır.",
+                "Pozitif bir zihin, pozitif bir hayat yaratır.",
+                "Hayatta en önemli şey, kendi şansını yaratmaktır.",
+                "Her yeni gün, yeni bir fırsat getirir.",
+                "Gülümsemek, en güzel enerjidir.",
+                "Hayat, sen ne düşünüyorsan onu sana geri verir.",
+                "Kendine inan; bu, başarının yarısıdır.",
+                "Zorluklar seni daha güçlü yapar.",
+                "Her düşüş, kalkmak için bir fırsattır.",
+                "Küçük mutluluklar, büyük mutlulukları getirir.",
+                "Hayatın her anı bir hediyedir.",
+                "Yapamazsın diyenlere inat, yap!",
+                "Hayal etmekten asla vazgeçme.",
+                "Sen başarırsan, herkes sustuğunda kazanırsın.",
+                "Hedefine odaklan, gerisi kendiliğinden gelir.",
+                "Engeller, başarı yolunda sadece bir merdivendir.",
+                "Kıçıktüm ama şimdi buradayım; her şey mümkün.",
+                "Kendi potansiyelini keşfetmeden asla pes etme.",
+                "Hiçbir zafer, savaşmadan kazanılmaz.",
+                "Sen yeter ki iste; imkansız diye bir şey yoktur.",
+                "İnanırsan, yaparsın!"
+            };
 
-        protected void btnSettings_Click(object sender, EventArgs e)
-        {
-            pnlSettings.CssClass = "settings-panel open"; // Paneli aç
-            btnSettings.Visible = false; // Ayarlar butonunu gizle
-            btnMusic.Visible = false;
-            btnPuzzles.Visible = false;
-        }
+            Random rnd = new Random();
+            int indeks = rnd.Next(yazilar.Count); // 0 ile yazilar.Count - 1 arasında
 
-        protected void btnClose_Click(object sender, EventArgs e)
-        {
-            pnlSettings.CssClass = "settings-panel"; // Paneli kapat
-            btnPuzzles.Visible = true; // Bulmacalar butonunu tekrar göster
-            btnSettings.Visible = true;
-            btnMusic.Visible = true;
-        }
-
-        protected void btnMusic_Click(object sender, EventArgs e)
-        {
-            pnlMusic.CssClass = "settings-panel open"; // Müzikler panelini aç
-            btnSettings.Visible = false; // Ayarlar butonunu gizle
-            btnMusic.Visible = false;
-            btnPuzzles.Visible = false;
-        }
-
-        protected void btnCloseMusic_Click(object sender, EventArgs e)
-        {
-            pnlMusic.CssClass = "settings-panel"; // Müzikler panelini kapat
-            btnPuzzles.Visible = true; // Bulmacalar butonunu tekrar göster
-            btnSettings.Visible = true;
-            btnMusic.Visible = true;
-        }
-
-        protected void btnPuzzles_Click(object sender, EventArgs e)
-        {
-            pnlPuzzles.CssClass = "settings-panel open"; // Bulmacalar panelini aç
-            btnSettings.Visible = false; // Ayarlar butonunu gizle
-            btnMusic.Visible = false;
-            btnPuzzles.Visible = false;
-        }
-
-        protected void btnClosePuzzles_Click(object sender, EventArgs e)
-        {
-            pnlPuzzles.CssClass = "settings-panel"; // Bulmacalar panelini kapat
-            btnPuzzles.Visible = true;
-            btnSettings.Visible = true;
-            btnMusic.Visible = true;
-        }
-
-        // Zamanlayıcı fonksiyonları
-        protected void btnSetTime_Click(object sender, EventArgs e)
-        {
-            int time;
-            if (int.TryParse(txtTime.Text, out time))
-            {
-                Session["timeLeft"] = time * 60;
-                UpdateLabel();
-            }
-        }
-
-        protected void btnStart_Click(object sender, EventArgs e)
-        {
-            Timer1.Enabled = true;
-        }
-
-        protected void btnStop_Click(object sender, EventArgs e)
-        {
-            Timer1.Enabled = false;
-        }
-
-        protected void btnReset_Click(object sender, EventArgs e)
-        {
-            int time;
-            if (int.TryParse(txtTime.Text, out time))
-            {
-                Session["timeLeft"] = time * 60;
-                UpdateLabel();
-                Timer1.Enabled = false;
-            }
-        }
-
-        private void UpdateLabel()
-        {
-            int timeLeft = (int)Session["timeLeft"];
-            int minutes = timeLeft / 60;
-            int seconds = timeLeft % 60;
-            lblTime.Text = $"{minutes:D2}:{seconds:D2}";
-        }
-
-        protected void Timer1_Tick(object sender, EventArgs e)
-        {
-            int timeLeft = (int)Session["timeLeft"];
-            if (timeLeft > 0)
-            {
-                timeLeft--;
-                Session["timeLeft"] = timeLeft;
-                UpdateLabel();
-            }
-            else
-            {
-                Timer1.Enabled = false; // Zaman dolduğunda durdur
-            }
-        }
-
-        // Butonlara renk değişikliği işlemleri
-        protected void btnRenkDegisimiBir_Click(object sender, EventArgs e)
-        {
-          
-            string color = "blue";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
-        }
-
-        protected void btnRenkDegisimiIki_Click(object sender, EventArgs e)
-        {
-            string color = "green";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
-        }
-
-        protected void btnRenkDegisimiUc_Click(object sender, EventArgs e)
-        {
-            string color = "orange";  // Yeşil renk
-            ViewState["backgroundColor"] = color;
-
-            // Sayfanın arka planını JavaScript ile değiştir
-            string script = $"document.body.style.backgroundColor = '{color}';";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "changeColorGreen", script, true);
+            return yazilar[indeks];
         }
     }
 }
