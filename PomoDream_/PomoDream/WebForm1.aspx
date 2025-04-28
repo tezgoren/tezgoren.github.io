@@ -96,18 +96,18 @@
         <asp:Panel ID="pnlKronometre" runat="server" CssClass="kronometre">
             <asp:ScriptManager ID="ScriptManager1" runat="server" /> 
             <div class="kronometre-container">
-                <h2>Kronometre</h2>
+                
                 
 
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <h1>
+                        <h1 style="font-family: 'MyCustomFont', sans-serif;">
                             <asp:Label ID="lblTime" runat="server" Text="25:00"></asp:Label>
                         </h1>
 
-                        <asp:Button ID="btnStart" runat="server" Text="Başlat" OnClick="btnStart_Click" CssClass="btn-kronometre"/>
-                        <asp:Button ID="btnStop" runat="server" Text="Durdur" OnClick="btnStop_Click"   CssClass="btn-kronometre"/>
-                        <asp:Button ID="btnReset" runat="server" Text="Sıfırla" OnClick="btnReset_Click"   CssClass="btn-kronometre"/>
+                        <asp:Button ID="btnStart" runat="server" Text="BAŞLAT" OnClick="btnStart_Click" CssClass="btn-kronometre"/>
+                        <asp:Button ID="btnStop" runat="server" Text="DURDUR" OnClick="btnStop_Click"   CssClass="btn-kronometre"/>
+                        <asp:Button ID="btnReset" runat="server" Text="SIFIRLA" OnClick="btnReset_Click"   CssClass="btn-kronometre"/>
 
                         <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick" Enabled="false" />
                     </ContentTemplate>

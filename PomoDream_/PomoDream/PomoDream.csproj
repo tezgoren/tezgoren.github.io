@@ -84,6 +84,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\321impact.ttf" />
+    <Content Include="Fonts\LemonMilk.otf" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

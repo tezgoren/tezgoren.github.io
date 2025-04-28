@@ -1,36 +1,36 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\",
+  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\PomoDream_\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|c:\\users\\yusuf-bakunin\\documents\\github\\site\\pomodream_\\pomodream\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|c:\\users\\user\\source\\repos\\pomodream_\\pomodream\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\webform1.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\USER\\source\\repos\\PomoDream_\\pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\stylesheet1.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\USER\\source\\repos\\PomoDream_\\pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 200,
+          "DockedWidth": 200,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "WebForm1.aspx",
-              "DocumentMoniker": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\PomoDream_\\PomoDream\\WebForm1.aspx",
               "RelativeDocumentMoniker": "PomoDream\\WebForm1.aspx",
-              "ToolTip": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\PomoDream_\\PomoDream\\WebForm1.aspx",
               "RelativeToolTip": "PomoDream\\WebForm1.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
@@ -41,28 +41,35 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "StyleSheet1.css",
-              "DocumentMoniker": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\StyleSheet1.css",
-              "RelativeDocumentMoniker": "PomoDream\\StyleSheet1.css",
-              "ToolTip": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\StyleSheet1.css",
-              "RelativeToolTip": "PomoDream\\StyleSheet1.css",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAQwJkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-03-25T00:59:41.631Z",
-              "IsPinned": true
-            },
+              "Title": "WebForm1.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\PomoDream_\\PomoDream\\WebForm1.aspx.cs",
+              "RelativeDocumentMoniker": "PomoDream\\WebForm1.aspx.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\PomoDream_\\PomoDream\\WebForm1.aspx.cs",
+              "RelativeToolTip": "PomoDream\\WebForm1.aspx.cs",
+              "ViewState": "AgIAAGMAAABAL4qm39AmwJsAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T00:38:12.245Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WebForm1.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx.cs",
-              "RelativeDocumentMoniker": "PomoDream\\WebForm1.aspx.cs",
-              "ToolTip": "C:\\Users\\yusuf-Bakunin\\Documents\\GitHub\\site\\PomoDream_\\PomoDream\\WebForm1.aspx.cs",
-              "RelativeToolTip": "PomoDream\\WebForm1.aspx.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAwwKQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T00:38:12.245Z",
-              "IsPinned": true
+              "Title": "StyleSheet1.css",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\PomoDream_\\PomoDream\\StyleSheet1.css",
+              "RelativeDocumentMoniker": "PomoDream\\StyleSheet1.css",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\PomoDream_\\PomoDream\\StyleSheet1.css",
+              "RelativeToolTip": "PomoDream\\StyleSheet1.css",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAKAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-25T00:59:41.631Z",
+              "EditorCaption": ""
             }
           ]
         }

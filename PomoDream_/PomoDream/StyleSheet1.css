@@ -1,7 +1,14 @@
 ﻿body {
     background-color: #FEFFD2;
 }
-
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('Fonts/321impact.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ikincilfont';
+    src : url('Fonts/LemonMilk.otf') format('truetype');
+}
 /* Temel ayarlar buton stili */
 .settings-button {
     position: fixed;
@@ -32,7 +39,7 @@
 
 /* Hover efekti */
 .settings-button:hover {
-    background-color: #45a049;
+    background-color: #FFBF78;
     transform: translateY(-3px); /* Hafif yukarı kayma */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
@@ -73,8 +80,8 @@
     padding: 20px;
     border-radius: 10px; /* Yuvarlatılmış köşeler */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hafif gölge */
-    width: 400px; /* Maksimum genişlik */
-    font-family: 'Roboto', sans-serif;
+    width: 600px; /* Maksimum genişlik */
+    
 }
 
 /* Ayarlar Paneli */
@@ -151,4 +158,10 @@ textarea {
     cursor: pointer; /* Üzerine gelince el işareti */
     font-size: 16px;
     transition: background-color 0.3s ease; /* Geçişli efekt */
+    font-family: 'ikincilfont', sans-serif;
+}
+h1 {
+    font-size: 150px;
+    color: #FF7D29;
+    font-family: 'MyCustomFont', sans-serif;
 }
