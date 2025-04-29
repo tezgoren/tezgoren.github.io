@@ -6,6 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="~/StyleSheet1.css" rel="stylesheet" />
     <title>PomoDream</title>
+  <script src="JavaScript.js" type="text/javascript"></script>
+
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -77,12 +80,22 @@
         </asp:Panel>
 
         <!-- Müzikler Butonu -->
-        <asp:Button ID="btnMusic" runat="server" Text="Müzikler" OnClick="btnMusic_Click" CssClass="settings-button" />
-        <asp:Panel ID="pnlMusic" runat="server" CssClass="settings-panel">
-            <h3>Müzikler Paneli</h3>
-            <textarea id="txtMusicContent" rows="10" cols="30" placeholder="Müzik içeriği girin..."></textarea>
-            <asp:Button ID="btnCloseMusic" runat="server" Text="Kapat" OnClick="btnCloseMusic_Click" CssClass="close-button" />
-        </asp:Panel>
+       
+                   <div class="mzk">
+            <asp:DropDownList ID="ddlExample" runat="server" AutoPostBack="True" Width="100%" CssClass="ddl"  OnSelectedIndexChanged="ddlExample_SelectedIndexChanged">
+   <asp:ListItem Text="🎵 Müzik Listesini Seçin" Value="npl" />
+ <asp:ListItem Text="☕ Cafe De Beyoğlu" Value="playlist1" />
+ <asp:ListItem Text="🎹 Lofi Piano" Value="playlist2" />
+ <asp:ListItem Text="🏞️ Lofi Cafe" Value="playlist3" />
+    
+</asp:DropDownList>
+
+<br /><br />
+
+<asp:Literal ID="ltIframe" runat="server"></asp:Literal>
+
+            </div>
+         
 
         <!-- Bulmacalar Butonu -->
         <asp:Button ID="btnPuzzles" runat="server" Text="Bulmacalar" OnClick="btnPuzzles_Click" CssClass="settings-button" />
@@ -114,6 +127,29 @@
                 </asp:UpdatePanel>
             </div>
         </asp:Panel>
+        <!-- AŞAĞIDAKİ BUTONLAR VE TEXTBOX -->
+            
+        <asp:Button ID="btnDeneme1" runat="server" Text="Paneli Aç/Kapat" CssClass="btnDeneme1Css" OnClick="btnTogglePanel_Click" />
+
+       
+        <div id="panelDeneme1" runat="server" class="panel1">
+           
+           
+            <asp:Button ID="btnDeneme1Close" runat="server" Text="Kapat" CssClass="close-btn" OnClick="btnClosePanel_Click" />
+        </div>
+        <!--WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+           <asp:Button ID="btnDeneme2" runat="server" Text="Paneli Aç/Kapat" CssClass="btnDeneme2Css" OnClick="btnDeneme2_Click" />
+
+  
+   <div id="panelDeneme2" runat="server" class="panel1">
+       <h2>İKİNCİ PANEL BU LA GARDAŞ</h2>
+       <p>Bu panel aşağıdan kayarak geliyor!</p>
+
+      
+       <asp:Button ID="btnDeneme2Close" runat="server" Text="Kapat" CssClass="close-btn" OnClick="btnDeneme2Close_Click" />
+   </div>
+       <asp:TextBox ID="txtSoz" runat="server" placeholder="Bir tane de sen bırak :)" CssClass="customTextbox" onfocus="selectText(this)" />
+
     </form>
 </body>
 </html>
