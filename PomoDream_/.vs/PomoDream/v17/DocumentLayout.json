@@ -1,0 +1,91 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\pomodream\\pages\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\pages\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|c:\\users\\00yus\\onedrive\\masa\u00FCst\u00FC\\pomodream_\\pomodream\\pages\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\pages\\index.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\pomodream\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\css\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|c:\\users\\00yus\\onedrive\\masa\u00FCst\u00FC\\pomodream_\\pomodream\\scripts\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5F0750-2175-4DE3-8744-200A3FDDCA27}|PomoDream\\PomoDream.csproj|solutionrelative:pomodream\\scripts\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.aspx",
+              "DocumentMoniker": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Pages\\Index.aspx",
+              "RelativeDocumentMoniker": "PomoDream\\Pages\\Index.aspx",
+              "ToolTip": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Pages\\Index.aspx",
+              "RelativeToolTip": "PomoDream\\Pages\\Index.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-03-25T00:59:36.074Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.css",
+              "DocumentMoniker": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Css\\main.css",
+              "RelativeDocumentMoniker": "PomoDream\\Css\\main.css",
+              "ToolTip": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Css\\main.css",
+              "RelativeToolTip": "PomoDream\\Css\\main.css",
+              "ViewState": "AgIAAO0BAAAAAAAAAAAcwBcCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-01T23:30:07.402Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Pages\\Index.aspx.cs",
+              "RelativeDocumentMoniker": "PomoDream\\Pages\\Index.aspx.cs",
+              "ToolTip": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Pages\\Index.aspx.cs",
+              "RelativeToolTip": "PomoDream\\Pages\\Index.aspx.cs",
+              "ViewState": "AgIAACEBAAAAAAAAAAAgwDYBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T20:34:45.304Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Scripts\\site.js",
+              "RelativeDocumentMoniker": "PomoDream\\Scripts\\site.js",
+              "ToolTip": "C:\\Users\\00yus\\OneDrive\\Masa\u00FCst\u00FC\\PomoDream_\\PomoDream\\Scripts\\site.js",
+              "RelativeToolTip": "PomoDream\\Scripts\\site.js",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAwwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-05-02T01:11:58.146Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

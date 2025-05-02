@@ -1,0 +1,535 @@
+﻿:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --button-color: #007BFF;
+    --panel-color: #f0f0f0;
+}
+
+.tema-panel {
+    display: inline-block;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.tema {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+    .tema:hover {
+        transform: scale(1.10);
+    }
+body {
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    margin: 0;
+    color: var(--text-color);
+}
+@font-face{
+        font-family: 'Kalin-Sansation';
+        src: url('../Fonts/Sansation_Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Ince-Sansation';
+    src: url('../Fonts/Sansation_Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../Fonts/321impact.ttf') format('truetype');
+}
+
+/* Temel ayarlar buton stili */
+.settings-button {
+    position: fixed;
+    /* Sol tarafa hizalı */
+    font-size: 18px;
+    padding: 12px 20px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 1001; /* En üstte olması için */
+    margin-bottom: 15px; /* Butonlar arasındaki boşluk */
+    font-family: 'Kalin-Sansation';
+}
+#btnSettings {
+    top: 20px; /* Sayfanın üst kısmına hizalı */
+    left: 20px;
+}
+
+/* Bulmacalar butonunun stili */
+
+/* Hover efekti */
+.settings-button:hover {
+    background-color: var(--panel-color);
+    transform: translateY(-3px); /* Hafif yukarı kayma */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Kapat butonunun stili */
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: var(--bg-color); /* Kırmızı renk */
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    font-family: 'Kalin-Sansation';
+}
+
+    /* Kapat butonunun hover efekti */
+    .close-button:hover {
+        background-color: var(--button-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+/* Ayarlar Paneli */
+/* Ayarlar Paneli */
+.container-settings {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Dikey sıralama */
+    align-items: center; /* Ortalamak için */
+    justify-content: flex-start; /* Yukarıdan başlayarak sıralanacak */
+    height: 100%;
+    overflow-y: auto; /* İçerik taşarsa dikey kaydırma çubuğu ekler */
+    
+}
+
+/* İçerik konteyneri (div) */
+.inner-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    background-color: var(--bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Divler arasına boşluk ekler */
+}
+
+/* Ayarlar panelinin kendisi */
+.settings-panel {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Panel başlangıçta sol dışarıda */
+    width: 300px;
+    height: 100%;
+    background-color: var(--panel-color);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    transition: left 0.5s ease; /* Sol kayma animasyonu */
+    overflow: hidden; /* Panelin dışına taşan içerikleri gizle */
+}
+
+    /* Panel açıldığında görünür olacak */
+    .settings-panel.open {
+        left: 0; /* Sol kenara kayarak görünür olacak */
+    }
+
+
+/* Diğer stiller aynen kalabilir */
+.mzk{
+    z-index: 1000;
+    right:20px;
+    top:20px;
+    position:fixed;
+    
+}
+.ddl {
+    width: 360px;
+    height: 48px;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 16px;
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill=\'%23fff\' height=\'20\' viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z\'/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px 16px;
+    text-align-last: center;
+    text-align: center;
+    font-family: 'Kalin-Sansation', sans-serif;
+    cursor: pointer;
+}
+    .ddl:hover {
+        background-color: var(--panel-color);
+        transform: translateY(-3px); /* Hafif yukarı kayma */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+
+#tema{
+    background-color:aliceblue;
+    width:100%;
+    height:auto;
+}
+h1 {
+    font-size: 140px;
+    color: var(--text-color);
+    margin:0;
+}
+.panel1 {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    padding: 20px;
+    z-index: 1000;
+    font-family: 'Ince-Sansation';
+    
+}
+
+    .panel1.active {
+        display: block;
+    }
+
+
+.btnDeneme1Css, .btnDeneme2Css, .close-btn {
+    padding: 10px 20px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Kalin-Sansation';
+}
+
+.btnDeneme1Css {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 400px;
+    height:50px;
+
+}
+    .btnDeneme1Css:hover {
+        background-color: var(--panel-color);
+        transform: translateY(-3px); /* Hafif yukarı kayma */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    .btnDeneme2Css{
+        position: fixed;
+        bottom:20px;
+        right:20px;
+        width:400px;
+        height:50px;
+    }
+        .btnDeneme2Css:hover {
+            background-color: var(--panel-color);
+            transform: translateY(-3px); /* Hafif yukarı kayma */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+/* Kapat butonunu sayfanın sağ üst köşesine sabitleyeceğiz */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 55px; /* Sağdan 15px mesafe */
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000; /* Diğer içeriklerin önünde kalmasını sağlarız */
+    background-color: var(--bg-color); /* Kırmızı renk */
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    font-family: 'Kalin-Sansation';
+}
+
+    .close-btn:hover {
+        background-color: var(--button-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+.customTextbox {
+    position: fixed;
+    bottom: 20px; /* Sayfanın en altına yerleştirir */
+    left: 50%; /* Ortalar */
+    transform: translateX(-50%); /* Tam olarak ortalar */
+    padding: 14px;
+    font-size: 18px;
+    width: 80%; /* Genişlik ayarı */
+    max-width: 400px; /* Maksimum genişlik */
+    border: 2px solid var(--button-color);
+    border-radius: 5px;
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    font-family: 'Ince-Sansation';
+}
+.txtKronometre {
+    background-color: var(--panel-color);
+    color: var(--text-color);
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-family: 'Kalin-Sansation';
+}
+.btnSureDegistirme {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 5px;
+    font-family: 'Kalin-Sansation';
+}
+    .btnSureDegistirme:hover {
+        background-color: var(--bg-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+.btnHakkimizdaCss {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 5px;
+    font-family: 'Kalin-Sansation';
+    width:90%;
+    height:100%;
+}
+    .btnHakkimizdaCss:hover {
+        background-color: var(--bg-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+.settings-panel-bulmaca {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Panel başlangıçta sol dışarıda */
+    width: 450px;
+    height: 100%;
+    background-color: var(--panel-color);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 1000;
+    transition: right 0.5s ease; /* Sol kayma animasyonu */
+    overflow: hidden;
+}
+    .settings-panel-bulmaca.open {
+        right: 0;
+    }
+.ddl_oyun {
+    width: 300px;
+    height: 48px;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 16px;
+    color: var(--text-color);
+    font-family: 'Kalin-Sansation';
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill=\'%23fff\' height=\'20\' viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z\'/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px 16px;
+    text-align-last: center;
+    text-align: center;
+    cursor:pointer;
+}
+    .ddl_oyun:hover {
+        background-color: var(--panel-color);
+        transform: translateY(-3px); /* Hafif yukarı kayma */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+.kronometre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Sayfa yüksekliği kadar ortalama */
+}
+
+/* Kronometre container'ı */
+.kronometre-container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Elemanları dikeyde sıralar */
+    align-items: center; /* Ortalar */
+    max-width: 400px;
+    margin: 0 auto;
+    
+}
+
+    /* Label ve butonlar arasındaki boşluğu azalt */
+    .kronometre-container h1 {
+        margin-bottom: 5px; /* Label ile butonlar arasındaki boşluğu azaltır */
+    }
+
+    /* Butonlar arasındaki boşluğu azalt */
+    .kronometre-container .btn-kronometre {
+        margin: 5px 0; /* Butonlar arasındaki boşluğu azaltır */
+    }
+
+/* Fullscreen butonunun görünümü */
+.btnFullScreen {
+   position:absolute;
+   top:18px;
+   left:125px;
+    border: 2px solid var(--button-color); /* Kenar çizgisi */
+    color: var(--text-color); /* Metin rengi */
+    padding:5px 10px 10px 10px;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 24px; /* Yazı boyutunu butonlarla uyumlu hale getirdik */
+    border-radius: 5px; /* Diğer butonlarla uyumlu yuvarlatılmış köşeler */
+    transition: all 0.3s ease; /* Geçiş efekti */
+    background: none;
+    border: none; /* <- Bunu ekle */
+    box-shadow: none; /* <- Bunu da ekle */
+   
+}
+
+    /* Hover efekti */
+    .btnFullScreen:hover {
+        background-color: var(--button-color); /* Hover durumunda arka planı mavi yap */
+        color: white; /* Hover'da metin rengi beyaz olsun */
+        transform: scale(1.05); /* Hoverda butonu biraz büyüt */
+    }
+
+    /* Focus (tıklanabilirken) durumu */
+    .btnFullScreen:focus {
+        outline: none; /* Focus'ta çizgi çıkmasın */
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Focus'da hafif gölge */
+    }
+
+.btn-kronometre {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 10px;
+    
+    border: none; /* Kenarlık kaldır */
+    border-radius: 5px; /* Köşeleri yuvarlat */
+    cursor: pointer; /* Üzerine gelince el işareti */
+    font-size: 21px;
+    transition: background-color 0.3s ease; /* Geçişli efekt */
+    font-family: 'Kalin-Sansation';
+    flex: 1 1 calc(33.33% - 10px); 
+    min-width: 130px;
+}
+
+
+
+
+
+.btn-kronometre:hover {
+    background-color: var(--panel-color);
+    transform: translateY(-3px); /* Hafif yukarı kayma */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.txtToDoList {
+    border: 2px solid var(--button-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Ince-Sansation';
+    font-size: 28px;
+    padding: 10px;
+
+}
+.btnToDoListEkle {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 15px 25px; /* İç boşluk */
+    border: none; /* Kenarlık kaldır */
+    border-radius: 5px; /* Köşeleri yuvarlat */
+    cursor: pointer; /* Üzerine gelince el işareti */
+    font-size: 25px;
+    transition: background-color 0.3s ease; /* Geçişli efekt */
+    font-family: 'Ince-Sansation';
+}
+    .btnToDoListEkle:hover {
+        background-color: var(--panel-color);
+        transform: translateY(-3px); /* Hafif yukarı kayma */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+.todolist-countainer {
+    column-count: 5; /* 3 sütun olacak */
+    column-gap: 10px; /* Sütunlar arası boşluk */
+    max-height: 70vh; /* Panel çok uzamasın */
+    overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu */
+    padding: 5px;
+    
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--bg-color); 
+    cursor: pointer;
+}
+.completed {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.7;
+}
+.kronometre-status {
+    letter-spacing: 26px;
+    
+    color: var(--text-color);
+    text-align: center;
+    display: block;
+    font-size: 30px;
+    
+    margin-top: 6px;
+    margin-left:26px;
+    transition: all 0.3s ease;
+    font-family: 'Kalin-Sansation';
+}
+.kronometre-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap:unset;
+    margin-top: 20px;
+}
+
+   
+
+
