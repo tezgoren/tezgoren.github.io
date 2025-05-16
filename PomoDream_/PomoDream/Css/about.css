@@ -1,4 +1,5 @@
-﻿body {
+﻿/*BODY / H'LAR / FONTLAR */
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,19 +19,18 @@ p {
     font-family: 'Kalin-Sansation';
     src: url('../Fonts/Sansation_Bold.ttf') format('truetype');
 }
-
 @font-face {
     font-family: 'Ince-Sansation';
     src: url('../Fonts/Sansation_Light.ttf') format('truetype');
 }
-
-.ana_countainer {
+/*ANA KONTEYNIR*/
+.main_countainer {
     width: 90vw;
-    height: 90vh;
+    min-height: 100vh; /* height yerine min-height kullan */
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     background-color: #ffffff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
@@ -38,11 +38,9 @@ p {
     flex-direction: column;
     padding: 20px;
     gap: 20px;
-    overflow: hidden;
-
 }
-
-.toplu_hakkimizda {
+/*TOPLU HAKKIMIZDA KISMI*/
+.about_us {
     flex: 0 0 20%;
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -56,34 +54,32 @@ p {
     transition: all 0.2s ease;
     position: relative;
 }
-    .toplu_hakkimizda:hover {
+    .about_us:hover {
         transform: scale(1.01);
     }
-
-.hakkimizda_baslik {
+.about_us_title {
     font-size: 2rem;
     margin: 0;
     margin-top: 10px;
     
 }
-
-.hakkimizda_paragraf {
+.about_us_paragraph {
     font-size: 1rem;
     
     margin: 0;
     margin-top: 10px;
     line-height: 1.5;
 }
-
-
-.alt_kapsayici {
+/*AYRI AYRI HAKKIMIZDA BÖLÜMÜ*/
+.about_us_child {
     flex: 1;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
-
-.ayri_hakkimizda {
-    flex: 1;
+.about_single {
+    flex: 1 1 300px;
+    min-width: 260px;
     background-color: #d3d3d3;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -91,63 +87,75 @@ p {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Alt alan hep en altta kalır */
+    justify-content: space-between; 
     text-align: center;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
-.ayri_hakkimizda:hover{
+.about_single:hover{
     transform: scale(1.01);
 }
-
-.ayri_baslik {
+.about_single_title {
     font-size: 1.5rem;
     margin-bottom: 10px;
     
 }
-
-.ayri_paragraf {
+.about_single_paragraph {
     font-size: 1rem;
     
     line-height: 1.4;
-    flex-grow: 1; /* Paragraf büyüyebilir, arada boşluk yaratır */
+    flex-grow: 1; 
 }
-
-/* İkonları yatayda hizalayarak düzenli hale getirelim */
-.buton_alani {
+.button_field {
     display: flex;
-    justify-content: center; /* İkonları ortalar */
-    gap: 20px; /* İkonlar arasında boşluk */
-    margin-top: 20px; /* Üst boşluk */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }
-
-/* İkonların boyutlarını ayarlayalım */
-    .buton_alani i {
+.button_field a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+    .button_field i {
         font-size: 40px;
-        color: #333; /* Başlangıç rengi */
-        margin: 0 15px;
-        transition: all 0.5s ease; /* Hover efekti için geçiş */
+        color: #333; 
+        margin: 0 5px;
+        transition: all 0.5s ease; 
     }
-    .buton_alani i:hover {
-            color: #0077b5; /* Hover rengi */
-            transform: scale(1.2); /* Hover efektinde büyütme */
+        .button_field i:hover {
+            color: #0077b5; 
+            transform: scale(1.2); 
         }
 .btnHome {
-    bottom:15px;
-    right:7px;
-     position:absolute;
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    /* Her zaman gönder butonuyla arada boşluk bırakmak için */
+    pointer-events: auto;
 }
     .btnHome i {
         font-size: 40px;
-        color: #333; /* Başlangıç rengi */
-        margin: 0 15px;
-        transition: all 0.5s ease; /* Hover efekti için geçiş */
+        color: #333; 
+        transition: all 0.5s ease; 
     }
         .btnHome i:hover {
-            color: #0077b5; /* Hover rengi */
-            transform: scale(1.2); /* Hover efektinde büyütme */
+            color: #0077b5; 
+            transform: scale(1.2); 
         }
-
-.textbox-feedback {
+/*GERİ BİLDİRİM KISMI*/
+.txt_feedback {
     width: 90%;
     padding: 10px;
     font-size: 14px;
@@ -156,18 +164,15 @@ p {
     resize: none !important;
     font-family: 'Ince-Sansation';
 }
-
 .stars {
     font-size: 22px;
     color: #B8860B;
     margin-bottom: 10px;
 }
-
-.btn-feedback {
+.btn_feedback {
     margin-top: 10px;
     background-color: #007bff;
     color: white;
- 
     font-family: 'Kalin-Sansation';
     font-size: 18px;
     padding: 12px 20px;
@@ -176,15 +181,16 @@ p {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    margin-bottom: 56px !important;
 }
-
-    .btn-feedback:hover {
+     .btn_feedback:hover {
         background-color: #0056b3;
-        transform: translateY(-3px); /* Hafif yukarı kayma */
+        transform: translateY(-3px); 
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    }
-.feedback-container {
-    
+     }
+.feedback_container {
+    flex: 1 1 300px;
+    min-width: 260px;
     background-color: #d3d3d3;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -194,7 +200,128 @@ p {
     flex-direction: column ;
     position:relative;    
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
-.feedback-container:hover{
+    .feedback_container:hover{
     transform: scale(1.01);
+    }
+    .feedback_container {
+    position: relative;
+    }
+
+/* Responsive düzenlemeler */
+@media (max-width: 1100px) {
+    .main_countainer {
+        width: 98vw;
+        min-height: 100vh;
+        padding: 10px;
+        border-radius: 0;
+        left: 0;
+        transform: none;
+        position: static;
+    }
+    .about_us_child {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .about_single, .feedback_container {
+        margin: 0;
+        min-width: 0;
+    }
+}
+@media (max-width: 900px) {
+    .about_us_child {
+        flex-direction: column !important;
+        gap: 16px;
+    }
+    .about_single, .feedback_container {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin: 0 auto 12px auto !important;
+        box-sizing: border-box;
+    }
+}
+@media (max-width: 700px) {
+    .main_countainer {
+        width: 100vw;
+        min-height: 100vh;
+        padding: 2vw;
+        border-radius: 0;
+    }
+    .about_us {
+        padding: 10px 5px;
+    }
+    .about_us_title {
+        font-size: 1.3rem;
+    }
+    .about_us_paragraph {
+        font-size: 0.95rem;
+    }
+    .about_single_title {
+        font-size: 1.1rem;
+    }
+    .about_single_paragraph {
+        font-size: 0.95rem;
+    }
+    .button_field i, .btnHome i {
+        font-size: 28px;
+        margin: 0 7px;
+    }
+    .feedback_container {
+        padding: 10px;
+    }
+    .btnHome {
+        right: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        /* Gönder butonuyla araya mesafe ekle */
+        margin-bottom: env(safe-area-inset-bottom, 24px);
+        /* Yeterli boşluk için yukarıdan da margin ekle */
+    }
+    .btn_feedback {
+        margin-bottom: 64px !important; /* Home ikonuna çakışmasın diye ekstra boşluk */
+    }
+}
+@media (max-width: 500px) {
+    .main_countainer {
+        padding: 0;
+        width: 100vw;
+        min-height: 100vh;
+    }
+    .about_us {
+        padding: 6px 2px;
+    }
+    .about_us_title {
+        font-size: 1.1rem;
+    }
+    .about_us_paragraph {
+        font-size: 0.85rem;
+    }
+    .about_single_title {
+        font-size: 1rem;
+    }
+    .about_single_paragraph {
+        font-size: 0.85rem;
+    }
+    .button_field {
+        gap: 8px;
+        margin-top: 10px;
+    }
+    .button_field i, .btnHome i {
+        font-size: 22px;
+        margin: 0 3px;
+    }
+    .feedback_container {
+        padding: 6px;
+    }
+    .txt_feedback {
+        font-size: 12px;
+        padding: 6px;
+    }
+    .btn_feedback {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
 }

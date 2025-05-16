@@ -17,7 +17,7 @@ namespace PomoDream
             public bool Completed { get; set; }
         }
 
-        // ViewState ile listeyi sakla
+        
         private List<TaskItem> Tasks
         {
             get
@@ -34,173 +34,137 @@ namespace PomoDream
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                Session["timeLeft"] = 25 * 60; // Varsayılan süre 25 dakika
-                UpdateLabel();
-            }
-
-
+            // MOTİVE EDİCİ SÖZ PAGE LOAD KISIMI
             if (!IsPostBack)
             {
                 string yazi = RastgeleYaziGetir();
                 txtSoz.Text = yazi;
             }
+            
+            // TO DO LİST PAGE LOAD KISIMI
             if (!IsPostBack)
             {
                 BindTasks();
             }
-
+        }
+        
+        // AYARLAR BUTONU / KAPATMA BUTONU VE PANELİ
+        protected void btnSettingsOpen_Click(object sender, EventArgs e)
+        {
+            pnlSettings.CssClass = "pnl_settings open"; 
+            btnSettingsOpen.Visible = false; 
         }
 
-        protected void btnSettings_Click(object sender, EventArgs e)
+        protected void btnSettingsClose_Click(object sender, EventArgs e)
         {
-            pnlSettings.CssClass = "settings-panel open"; // Paneli aç
-            btnSettings.Visible = false; // Ayarlar butonunu gizle
-
+            pnlSettings.CssClass = "pnl_settings"; 
+            btnSettingsOpen.Visible = true;
         }
 
-        protected void btnClose_Click(object sender, EventArgs e)
+        // Kronometre süre ayarlama - JavaScript için değerleri hazırlıyor
+        protected void btnWorkTimeSet_Click(object sender, EventArgs e)
         {
-            pnlSettings.CssClass = "settings-panel"; // Paneli kapat
-            btnSettings.Visible = true;
+            // JavaScript kronometre kontrolü kullanıldığı için bu metot artık sadece
+            // TextBox değerini ayarlıyor. Gerçek süre güncellemesi JS tarafında yapılıyor.
+        }
+        
+        protected void btnBreakTimeSet_Click(object sender, EventArgs e)
+        {
+            // JavaScript kronometre kontrolü kullanıldığı için bu metot artık sadece
+            // TextBox değerini ayarlıyor. Gerçek süre güncellemesi JS tarafında yapılıyor.
         }
 
-
-
-
-        protected void btnClosePuzzles_Click(object sender, EventArgs e)
+        // YAPILACAKLAR LİSTESİ KISIMLARI
+        protected void btnToDoListOpen_Click(object sender, EventArgs e)
         {
-            btnSettings.Visible = true;
-        }
-
-        // Zamanlayıcı fonksiyonları
-        protected void btnSetTime_Click(object sender, EventArgs e)
-        {
-            int time;
-            if (int.TryParse(txtTime.Text, out time))
-            {
-                Session["timeLeft"] = time * 60;
-                UpdateLabel();
-            }
-        }
-
-        protected void btnStart_Click(object sender, EventArgs e)
-        {
-            Timer1.Enabled = true;
-            lblStatus.Text = "Çalış!";
-        }
-
-        protected void btnStop_Click(object sender, EventArgs e)
-        {
-            Timer1.Enabled = false;
-            lblStatus.Text = ""; // Zamanlayıcı durduğunda yazıyı temizle
-        }
-
-        protected void btnReset_Click(object sender, EventArgs e)
-        {
-            int time;
-            if (int.TryParse(txtTime.Text, out time))
-            {
-                Session["timeLeft"] = time * 60;
-                UpdateLabel();
-                Timer1.Enabled = false;
-                lblStatus.Text = ""; // Zamanlayıcı sıfırlandığında yazıyı temizle
-            }
-        }
-
-        private void UpdateLabel()
-        {
-            int timeLeft = (int)Session["timeLeft"];
-            int minutes = timeLeft / 60;
-            int seconds = timeLeft % 60;
-            lblTime.Text = $"{minutes:D2}:{seconds:D2}";
-        }
-
-        protected void Timer1_Tick(object sender, EventArgs e)
-        {
-            int timeLeft = (int)Session["timeLeft"];
-            if (timeLeft > 0)
-            {
-                timeLeft--;
-                Session["timeLeft"] = timeLeft;
-                UpdateLabel();
-            }
-            else
-            {
-                bool isBreak = Session["isBreak"] != null && (bool)Session["isBreak"];
-
-                if (!isBreak)
-                {
-                    // Çalışma süresi bitti, mola başlat
-                    int breakDuration = Session["breakDuration"] != null ? (int)Session["breakDuration"] : 5 * 60;
-                    Session["timeLeft"] = breakDuration;
-                    Session["isBreak"] = true;
-                    lblStatus.Text = "Mola!";  // Mola yazısı
-                }
-                else
-                {
-                    // Mola bitti, yeniden çalışma süresine dön
-                    int workTime = int.TryParse(txtTime.Text, out int t) ? t : 25;
-                    Session["timeLeft"] = workTime * 60;
-                    Session["isBreak"] = false;
-                    lblStatus.Text = "Çalış!";  // Çalışma yazısı
-                }
-
-                UpdateLabel();
-                Timer1.Enabled = true; // Tekrar başlat
-            }
-        }
-
-
-        protected void btnSetBreakTime_Click(object sender, EventArgs e)
-        {
-            int breakTime;
-            if (int.TryParse(txtBreakTime.Text, out breakTime) && breakTime > 0)
-            {
-                Session["breakDuration"] = breakTime * 60;
-            }
-        }
-
-        protected void btnTogglePanel_Click(object sender, EventArgs e)
-        {
-            string currentClass = panelDeneme1.Attributes["class"] ?? "";
+            string currentClass = plToDoList.Attributes["class"] ?? "";
 
             if (currentClass.Contains("active"))
-                panelDeneme1.Attributes["class"] = "panel1"; // Gizle
+                plToDoList.Attributes["class"] = "pnl_todo_list";
             else
-                panelDeneme1.Attributes["class"] = "panel1 active"; // Göster
-            btnDeneme1.Visible = false;
+                plToDoList.Attributes["class"] = "pnl_todo_list active"; 
+            btnToDoListOpen.Visible = false;
             txtSoz.Visible = false;
-            btnDeneme2.Visible = false;
+            btnGamesOpen.Visible = false;
         }
 
-        protected void btnClosePanel_Click(object sender, EventArgs e)
+        protected void btnToDoListClose_Click(object sender, EventArgs e)
         {
-            // Direkt kapat
-            panelDeneme1.Attributes["class"] = "panel1"; // Direkt gizle
-            btnDeneme1.Visible = true;
+            plToDoList.Attributes["class"] = "pnl_todo_list"; 
+            btnToDoListOpen.Visible = true;
             txtSoz.Visible = true;
-            btnDeneme2.Visible = true;
+            btnGamesOpen.Visible = true;
+        }
+        
+        protected void btnToDoListTaskAdd_Click(object sender, EventArgs e)
+        {
+            string newTask = txtToDoList.Text.Trim();
+            if (!string.IsNullOrEmpty(newTask))
+            {
+                Tasks.Add(new TaskItem { Text = newTask, Completed = false });
+                txtToDoList.Text = "";
+                BindTasks();
+            }
         }
 
-        protected void btnDeneme2_Click(object sender, EventArgs e)
+        protected void chkToDoListComplate_CheckedChanged(object sender, EventArgs e)
         {
-            PanelBulmacaa.CssClass = "settings-panel-bulmaca open";
-            btnDeneme2.Visible = false;
-            
+            CheckBox chk = (CheckBox)sender;
+            RepeaterItem item = (RepeaterItem)chk.NamingContainer;
+            int index = item.ItemIndex;
+
+            Tasks[index].Completed = chk.Checked;
+            BindTasks();
         }
 
-        protected void btnDeneme2Close_Click(object sender, EventArgs e)
+        private void BindTasks()
         {
-            // Direkt kapat
-            PanelBulmacaa.CssClass = "settings-panel-bulmaca";
-            btnDeneme2.Visible = true;
-            
+            rptToDoListTasks.DataSource = Tasks;
+            rptToDoListTasks.DataBind();
         }
-        protected void ddlExample_SelectedIndexChanged(object sender, EventArgs e)
+
+        // OYUNLAR KISIMI
+        protected void btnGamesOpen_Click(object sender, EventArgs e)
         {
-            string selectedValue = ddlExample.SelectedValue;
+            pnlGames.CssClass = "pnl_games open";
+            btnGamesOpen.Visible = false;
+        }
+
+        protected void btnGamesClose_Click(object sender, EventArgs e)
+        {
+            pnlGames.CssClass = "pnl_games";
+            btnGamesOpen.Visible = true;
+        }
+        
+        protected void ddlGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = ddlGames.SelectedValue;
+            string iframeHtml = "";
+
+            if (selectedValue == "sudoku")
+            {
+                iframeHtml = "<iframe src='//widget.websudoku.com/?level=1' width=\"100%\" height='600' scrolling='no' frameborder='0'></iframe>";
+            }
+            else if (selectedValue == "snakeGame")
+            {
+                iframeHtml = "<iframe src='https://www.snakegame.net/' width=\"100%\" height='600' style='border:none;'></iframe>";
+            }
+            else if (selectedValue == "game2048")
+            {
+                iframeHtml = "<iframe src =\"https://2048game.com/\" width=\"100%\" height=\"600\" frameborder=\"0\"></iframe>\r\n";
+            }
+            else if (selectedValue == "flapybird")
+            {
+                iframeHtml = "<iframe src=\"https://flappybird.io/\" width=\"100%\" height=\"600\" frameborder=\"0\"></iframe>\r\n";
+            }
+
+            ltGames.Text = iframeHtml;
+        }
+        
+        // MÜZİK KISIMI
+        protected void ddlMusic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedValue = ddlMusic.SelectedValue;
             string iframeHtml = "";
 
             if (selectedValue == "playlist1")
@@ -220,9 +184,11 @@ namespace PomoDream
                 iframeHtml = "<iframe width=\"100%\" height=\"212\" src=\"https://www.youtube.com/embed/videoseries?si=2vhzZSFp7WPncJK3&amp;list=PLbPqG08ImzRhcK_7H53Qn2DwtbqeysQj3\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\r\n";
             }
 
-            ltIframe.Text = iframeHtml;
-            ddlExample.Items[0].Enabled = false;
+            ltMusicIframe.Text = iframeHtml;
+            ddlMusic.Items[0].Enabled = false;
         }
+        
+        // MOTİVE SÖZLER KISIMI
         private string RastgeleYaziGetir()
         {
             List<string> yazilar = new List<string>
@@ -270,66 +236,16 @@ namespace PomoDream
             };
 
             Random rnd = new Random();
-            int indeks = rnd.Next(yazilar.Count); // 0 ile yazilar.Count - 1 arasında
+            int indeks = rnd.Next(yazilar.Count); 
 
             return yazilar[indeks];
         }
-        protected void btnAdd_Click(object sender, EventArgs e)
+       
+        // HAKKIMIZDA BUTONU KISIMI
+        protected void btnAbout_Click(object sender, EventArgs e)
         {
-            string newTask = txtTask.Text.Trim();
-            if (!string.IsNullOrEmpty(newTask))
-            {
-                Tasks.Add(new TaskItem { Text = newTask, Completed = false });
-                txtTask.Text = "";
-                BindTasks();
-            }
-        }
-
-        protected void chkComplete_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckBox chk = (CheckBox)sender;
-            RepeaterItem item = (RepeaterItem)chk.NamingContainer;
-            int index = item.ItemIndex;
-
-            Tasks[index].Completed = chk.Checked;
-            BindTasks();
-        }
-
-        private void BindTasks()
-        {
-            rptTasks.DataSource = Tasks;
-            rptTasks.DataBind();
-        }
-
-        protected void gddlgame_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedValue = gddlgame.SelectedValue;
-            string iframeHtml = "";
-
-            if (selectedValue == "sudoku")
-            {
-                iframeHtml = "<iframe src='//widget.websudoku.com/?level=1' width=\"100%\" height='600' scrolling='no' frameborder='0'></iframe>";
-            }
-            else if (selectedValue == "snakeGame")
-            {
-                iframeHtml = "<iframe src='https://www.snakegame.net/' width=\"100%\" height='600' style='border:none;'></iframe>";
-            }
-            else if (selectedValue == "game2048")
-            {
-                iframeHtml = "<iframe src =\"https://2048game.com/\" width=\"100%\" height=\"600\" frameborder=\"0\"></iframe>\r\n";
-            }
-            else if (selectedValue == "flapybird")
-            {
-                iframeHtml = "<iframe src=\"https://flappybird.io/\" width=\"100%\" height=\"600\" frameborder=\"0\"></iframe>\r\n";
-            }
-
-            Literal2.Text = iframeHtml;
-
-        }
-
-        protected void btnHakkimizda_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("About.aspx");
+            // Tam yolu kullanarak yönlendirme yapalım
+            Response.Redirect("~/Pages/About.aspx");
         }
     }
 }
